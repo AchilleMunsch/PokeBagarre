@@ -15,7 +15,7 @@ package com.montaury.pokebagarre.metier;
 import com.montaury.pokebagarre.fixtures.ConstructeurDePokemon;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class PokemonTest {
     @Test
@@ -28,8 +28,7 @@ class PokemonTest {
         boolean result = pokemonLePlusFort.estVainqueurContre(pokemonLeMoinsFort);
 
         //THEN
-        assertEquals(true, result);
-
+        assertThat(result).isTrue();
     }
 
     @Test
@@ -43,7 +42,7 @@ class PokemonTest {
         boolean result = pokemonLeMoinsFort.estVainqueurContre(pokemonLePlusFort);
 
         // THEN
-        assertEquals(false, result);
+        assertThat(result).isFalse();
 
     }
 
@@ -58,8 +57,7 @@ class PokemonTest {
         boolean result = pokemonLePlusFort.estVainqueurContre(pokemonLeMoinsFort);
 
         // THEN
-        assertEquals(true, result);
-    }
+        assertThat(result).isTrue();    }
 
     @Test
     void verifier_si_les_deux_attaques_sont_egales_si_le_pokemon_avec_le_moins_de_defense_perd() {
@@ -71,7 +69,7 @@ class PokemonTest {
         boolean result = pokemonLeMoinsFort.estVainqueurContre(pokemonLePlusFort);
 
         // THEN
-        assertEquals(false, result);
+        assertThat(result).isFalse();
     }
 
     @Test
@@ -85,6 +83,6 @@ class PokemonTest {
         boolean result = premierPokemon.estVainqueurContre(deuxiemePokemon);
 
         // THEN
-        assertEquals(true, result);
+        assertThat(result).isTrue();
     }
 }
